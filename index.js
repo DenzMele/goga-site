@@ -3,7 +3,7 @@ const app = express();
 const request = require('request');
 const {Telegraf} = require('telegraf');
 const bot = new Telegraf('7131231291:AAH9sZ0aQHgU7ewKyuIUnLCXOqDwgbR-Vpc');
-const link = 'localhost:3000'
+const link = 'denzmele-goga-site-42fe.twc1.net'
 let sendms = [];
 const botusers = [5903574289, 7147845976]
 const admins = [5903574289, 7147845976]
@@ -183,7 +183,7 @@ bot.on('message', async (ctx)=>{
 
 const port = 3000;
 app.listen(port, () => {
-    console.log('We are live on localhost:' + port);
+    console.log('We are live on ' + port);
 });
 
 try{
