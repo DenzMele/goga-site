@@ -6,8 +6,8 @@ const bot = new Telegraf('7131231291:AAH9sZ0aQHgU7ewKyuIUnLCXOqDwgbR-Vpc');
 const owner = 7147845976;
 const link = 'localhost:3000'
 let sendms = [];
-const botusers = [5903574289, 7112857666]
-const admins = [5903574289, 7112857666]
+const botusers = [5903574289, 7147845976]
+const admins = [5903574289, 7147845976]
 function sd(number){
     return number.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 }
