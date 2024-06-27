@@ -105,7 +105,7 @@ app.get('/return', (req, res) => {
         }, 300)
     }
 
-    else res.send('400 ERROR')
+    else res.send('400 error')
 });
 app.get('/getcode', (req, res) => {
     res.render(`code`);
