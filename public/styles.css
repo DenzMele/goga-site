@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.form-bg{
+    width: 60vh;
+    height: auto;
+    padding-bottom: 1vh;
+    box-shadow: 0px 0px 18px 0px rgba(34, 60, 80, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form2-bg{
+    width: 35vh;
+    height: auto;
+    padding-bottom: 1vh;
+    box-shadow: 0px 0px 18px 0px rgba(34, 60, 80, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form2-inp-button{
+    margin-top: 1rem;
+    margin-left: 2vh;
+    height: 5.5vh;
+    width: 31vh;
+    background-color: #50AD51;
+    border-style: none;
+    color: white;
+    font-size: 1.75vh;
+    border-radius: 0.5vh;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-inp-button{
+    margin-left: 2vh;
+    height: 5.5vh;
+    width: 56vh;
+    background-color: #50AD51;
+    border-style: none;
+    font-size: 1.75vh;
+    border-radius: 0.5vh;
+}
+
+.form-inp-text{
+    color: #1f1f1f;
+    font-size: 1.5vh;
+}
+
+.form-inp-cont{
+    margin-left: 2vh;
+    margin-top: 1vh;
+}
+
+.form-inp-box{
+    width: 90%;
+    border-color: #a8a8a8;
+    border-style: solid;
+    border-width: 0.5px;
+    padding: 1.25vh;
+    font-size: 1.5vh;
+    outline:none;
+}
+
+.form2-inp-box{
+    width: 70%;
+    border-color: #a8a8a8;
+    border-style: solid;
+    border-width: 0.5px;
+    padding: 1.25vh;
+    font-size: 1.5vh;
+    outline:none;
+    text-align: center;
+}
+
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
