@@ -3,7 +3,6 @@ const app = express();
 const request = require('request');
 const {Telegraf} = require('telegraf');
 const bot = new Telegraf('7131231291:AAH9sZ0aQHgU7ewKyuIUnLCXOqDwgbR-Vpc');
-const owner = 7147845976;
 const link = 'localhost:3000'
 let sendms = [];
 const botusers = [5903574289, 7147845976]
