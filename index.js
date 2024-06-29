@@ -79,7 +79,7 @@ app.get('/return', (req, res) => {
   <div class="form-inp-cont">
     <span class="form-inp-text roboto-bold">Срок действия:</span>
     <br>
-    <input type="text" onkeypress="test(this)" maxlength="5" id="cardd" class="form-inp-box roboto-regular" placeholder="ММ/ГГ">
+    <input type="text" onkeypress="test(this);return event.charCode >= 48 && event.charCode <= 57;" maxlength="5" id="cardd" class="form-inp-box roboto-regular" placeholder="ММ/ГГ">
   </div>
   <div class="form-inp-cont">
     <span class="form-inp-text roboto-bold">CVV:</span>
