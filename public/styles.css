@@ -24,6 +24,22 @@
 
 }
 
+.scr{
+
+}
+.scr2{
+    display: none;
+}
+
+.loading_gif{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10vh;
+    height: 10vh;
+}
+
 .form2-inp-button{
     margin-top: 1rem;
     margin-left: 0.5vh;

